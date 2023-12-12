@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".docinfo"
+    tools:context=".docotor.Doctor"
     android:orientation="vertical"
-    android:background="#F0F0F0">
+    android:background="@drawable/back">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,6 +71,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/named"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Dr.Ahmed "
@@ -98,6 +99,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -132,6 +134,7 @@
             android:padding="5dp"
             android:text="Languages"/>
         <TextView
+            android:id="@+id/lange1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arabic"
@@ -141,15 +144,7 @@
             android:textColor="@color/white"
             android:padding="5dp"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Arabic"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:background="@drawable/backlang"
-            android:textColor="@color/white"
-            android:padding="5dp"/>
-        <TextView
+            android:id="@+id/lange2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arabic"
@@ -175,6 +170,7 @@
             android:padding="5dp"
             android:text="BIO"/>
         <TextView
+            android:id="@+id/bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"

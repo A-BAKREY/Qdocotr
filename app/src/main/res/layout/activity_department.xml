@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Department">
+    tools:context=".department.Department">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -28,10 +28,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="3dp"
+            android:layout_gravity="center"
             android:src="@drawable/sidemenu" />
     </LinearLayout>
 
     <GridView
+        android:id="@+id/departmentGrid"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
