@@ -14,31 +14,19 @@
         android:theme="@style/Theme.ClinicApp"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".intro.IntroActivity"
+            android:exported="false" />
+        <activity
             android:name=".authantication.SignupActivity"
             android:exported="false" />
         <activity
             android:name=".admin"
             android:exported="false" />
         <activity
-            android:name=".docotor.Doctor"
-            android:exported="false" />
-        <activity
-            android:name=".color1"
-            android:exported="false" />
-        <activity
-            android:name=".item3"
-            android:exported="false" />
-        <activity
-            android:name=".item2"
-            android:exported="false" />
-        <activity
             android:name=".booking"
-            android:exported="false" />
-        <activity
-            android:name=".docotor.DoctorInformation"
-            android:exported="false" />
-        <activity
-            android:name=".department.Department"
             android:exported="false" />
         <activity
             android:name=".authantication.LoginActivity"

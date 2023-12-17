@@ -1,40 +1,39 @@
 package com.example.clinicapp.docotor
-
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.clinicapp.R
 
-class DoctorAdapter(private val context: Context, private val item: List<DoctorModel>) :
-    BaseAdapter() {
-    override fun getCount(): Int {
-        return item.size
+class DoctorAdapter(private val dataSet: List<DoctorModel>, private val onClick: (DoctorModel) -> Unit) :
+    RecyclerView.Adapter<DoctorAdapter.MyViewHolder>() {
+
+    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val textView: TextView = view.findViewById(R.id.doctorName)
+        val imageView: ImageView = view.findViewById(R.id.doctorImage)
+
+
+        init {
+            view.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onClick(dataSet[position])
+                }
+            }
+        }
     }
 
-    override fun getItem(p0: Int): Any {
-        return item[p0]
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_doctor, parent, false)
+        return MyViewHolder(view)
     }
 
-    override fun getItemId(p0: Int): Long {
-        return p0.toLong()
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.textView.text = dataSet[position].name
+        holder.imageView.setImageResource(dataSet[position].image)
     }
 
-    override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_doctor,p2,false)
-        var image = view?.findViewById<ImageView>(R.id.doctorImage)
-        var name = view?.findViewById<TextView>(R.id.doctorName)
-        var bio = view?.findViewById<Button>(R.id.bio)
-        var appoint = view?.findViewById<Button>(R.id.appointment)
-        val items = item[p0]
-        image?.setImageResource(items.image)
-        name?.text = items.name
-        bio?.setText("Bio")
-        appoint?.text = "Appointment"
-        return view
-    }
+    override fun getItemCount() = dataSet.size
 }

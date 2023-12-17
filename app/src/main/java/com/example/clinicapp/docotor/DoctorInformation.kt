@@ -1,47 +1,45 @@
 package com.example.clinicapp.docotor
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+
+import android.os.Build
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import com.example.clinicapp.R
+import com.example.clinicapp.databinding.ActivityDocinfoBinding
 
-class DoctorInformation : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_docinfo)
-        var text = findViewById<TextView>(R.id.named)
-        var backbutton = findViewById<TextView>(R.id.button3)
-        var image = findViewById<ImageView>(R.id.imageView)
-        var depart = findViewById<TextView>(R.id.textView2)
-        var price2 = findViewById<Button>(R.id.price)
-        var lang1 = findViewById<TextView>(R.id.lange1)
-        var lang2 = findViewById<TextView>(R.id.lange2)
-        var bioi = findViewById<TextView>(R.id.bio)
+class DoctorInformation : Fragment() {
 
+    private var _binding: ActivityDocinfoBinding? = null
+    private val binding get() = _binding!!
 
-        backbutton.setOnClickListener {
-            startActivity(Intent(this, Doctor::class.java))
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment using View Binding
+        _binding = ActivityDocinfoBinding.inflate(inflater, container, false)
+        val view = binding.root
+        binding.layout.setBackgroundColor(requireContext().getColor(R.color.gray))
+        val modelReceived = arguments?.getSerializable("data_key") as? DoctorModel
+        binding.imageView2.setImageResource(modelReceived!!.image)
+        binding.named.text = modelReceived.name
+        binding.price.text = modelReceived.price.toString()
+        binding.bio.text = modelReceived.bio
+        binding.textView2.text = modelReceived.depart
+
+        binding.back.setOnClickListener {
+            requireActivity().onBackPressed()
         }
-        var name = intent.getStringExtra("name")
-        var imagePath = intent.getIntExtra("image",0)
-        var department = intent.getStringExtra("Department")
-        var bio = intent.getStringExtra("Bio")
-        //var price = intent.getIntExtra("price",0)
-       // var languege = intent.getStringArrayExtra("language")
-
-
-        text.text = name
-        image.setImageResource(imagePath)
-        depart.text = department
-        //price2.text = price.toString()
-        bioi.text = bio
-//        lang1.text = languege!![0]
-//        lang2.text = languege!![1]
-
-        }
-
-
+        return view
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

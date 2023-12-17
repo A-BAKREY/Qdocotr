@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.example.clinicapp.MainActivity
 import com.example.clinicapp.department.Department
 import com.example.clinicapp.R
 
@@ -18,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         }
         var gotohome =findViewById<Button>(R.id.login)
         gotohome.setOnClickListener {
-            startActivity(Intent(this, Department::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
     }
 }
 }

@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_container"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <GridView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/doctorRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="2"
-        android:id="@+id/doctorGrid"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_doctor"
-        android:layout_margin="10dp"/>
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/item_doctor" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

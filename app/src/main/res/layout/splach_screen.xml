@@ -24,6 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="clinic app"
+        android:fontFamily="@font/cairo_black"
+
         android:textColor="@color/purple_200"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

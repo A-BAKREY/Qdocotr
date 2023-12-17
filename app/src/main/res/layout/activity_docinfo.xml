@@ -1,191 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".docotor.Doctor"
-    android:orientation="vertical"
-    android:background="@drawable/back">
-
-    <LinearLayout
+    android:id="@+id/layout"
+    android:background="#eef2f5"
+    android:orientation="vertical">
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/backg"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        android:layout_margin="10dp">
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Back"
-                android:padding="5dp"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:background="@drawable/backlang"
-                android:drawableStart="@drawable/arrow_back"
-                tools:layout_editor_absoluteX="7dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:layout_weight="1"
-                android:padding="3dp"
-                android:src="@drawable/ic_baseline_notifications_24" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="3dp"
-                android:src="@drawable/sidemenu" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:padding="20dp"
-            android:src="@drawable/person"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/named"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Dr.Ahmed "
-            android:layout_gravity="center"
-            android:textSize="30sp"
-            android:background="@drawable/backgrounddoctor"/>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="dfdfdfgfdgfdgfgfdgfgfdgggggggggggggggggggggddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.625"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        android:layout_height="match_parent"
+        tools:context=".docotor.Doctor">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="price"
-                android:layout_weight="1"
-                android:background="@color/white"/>
+                android:background="@drawable/backg"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/back"
+                    android:src="@drawable/arrow_back"
+                    android:layout_margin="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="30dp"
+                    android:scaleType="fitXY"
+                    android:padding="20dp"
+                    android:src="@drawable/doc3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/named"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Dr.Esraa "
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/cairo_black"
+                    android:textColor="#005fff"
+                    android:background="@drawable/backgrounddoctor"/>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/cairo_regular"
+                    android:textColor="@color/white"
+                    android:text="أخصائي أمراض المخ والأعصاب والطب النفسي وطب النوم"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.625"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="price"
+                        android:fontFamily="@font/cairo_black"
+                        android:textColor="#005fff"
+                        android:layout_weight="1"
+                        android:background="@drawable/backgrounddoctor"/>
 
 
-            <Button
-                android:layout_width="wrap_content"
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:textColor="#005fff"
+                        android:fontFamily="@font/cairo_black"
+                        android:background="@drawable/backgrounddoctor"
+                        android:text="Appoinment" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:text="Appoinment" />
+                android:background="@color/white"
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/blue"
+                    android:padding="5dp"
+                    android:fontFamily="@font/cairo_black"
+                    android:text="Languages"/>
+                <TextView
+                    android:id="@+id/lange1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arabic"
+                    android:textSize="16sp"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:background="@drawable/backlang"
+                    android:textColor="@color/white"
+                    android:padding="5dp"/>
+                <TextView
+                    android:id="@+id/lange2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arabic"
+                    android:textSize="16sp"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/cairo_regular"
 
+                    android:background="@drawable/backlang"
+                    android:textColor="@color/white"
+                    android:padding="5dp"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_margin="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/blue"
+                    android:padding="5dp"
+                    android:fontFamily="@font/cairo_black"
+                    android:text="BIO"/>
+                <TextView
+                    android:id="@+id/bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="د. هالة جودة استشاري الصحة النفسية. أطفال - مراهقين -تنمية مهارات وتعديل سلوك وتطبيق اختبار الذكاء والاختبارات النفسية و العلاج المعرفي السلوكي، والإرشاد الأسري"/>
+
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+</ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:layout_margin="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@color/blue"
-            android:padding="5dp"
-            android:text="Languages"/>
-        <TextView
-            android:id="@+id/lange1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Arabic"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:background="@drawable/backlang"
-            android:textColor="@color/white"
-            android:padding="5dp"/>
-        <TextView
-            android:id="@+id/lange2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Arabic"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:background="@drawable/backlang"
-            android:textColor="@color/white"
-            android:padding="5dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_margin="5dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@color/blue"
-            android:padding="5dp"
-            android:text="BIO"/>
-        <TextView
-            android:id="@+id/bio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Languagesdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"/>
-
-    </LinearLayout>
-
-
-
-
-
-
-
-</LinearLayout>
+</FrameLayout>

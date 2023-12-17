@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.clinicapp.authantication.LoginActivity
+import com.example.clinicapp.intro.IntroActivity
 
 class SplachScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,7 @@ class SplachScreen : AppCompatActivity() {
         setContentView(R.layout.splach_screen)
 
           Handler(Looper.myLooper()!!).postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, IntroActivity::class.java))
           },3000)
     }
 }
