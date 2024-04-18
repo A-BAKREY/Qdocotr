@@ -331,6 +331,7 @@
                                             android:fontFamily="@font/cairo_bold"
                                             android:gravity="center"
                                             android:text="120 LE"
+                                            android:id="@+id/price"
 
                                             android:textColor="@color/blue" />
 
