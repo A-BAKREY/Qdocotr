@@ -12,17 +12,47 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.clinicapp.R
+import com.example.clinicapp.chat.model.RepliesModel
 import com.example.clinicapp.databinding.ActivityChatBinding
+import com.example.clinicapp.docotor.adapter.DoctorAdapter
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
     private var read_req2 = 300
     private val camera_req = 400
+    private lateinit var adapter: ChattingAdapter // Replace MyAdapter with your actual adapter class
+
+    val items = arrayListOf(RepliesModel(
+        "hi","12-12-2023, 12:55:12pm"
+    ),RepliesModel(
+        "how are you","12-12-2023, 12:55:12pm"
+    )
+  )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        adapter = ChattingAdapter(items)
+        binding.chatRecyclerView.adapter = adapter
+        binding.sendMessage.setOnClickListener {
+            val messageText = binding.addReply.text.toString().trim()
+            if (messageText.isNotEmpty()) {
+                val currentTime = getCurrentTime() // قم بتعريف هذه الدالة لاسترجاع الوقت الحالي
+                val newMessage = RepliesModel(messageText, currentTime)
+                items.add(newMessage)
+                adapter.notifyItemInserted(items.size - 1)
+                binding.chatRecyclerView.scrollToPosition(items.size - 1)
+                binding.addReply.setText("") // لمسح نص الرسالة بعد الإرسال إذا رغبت
+            }
+        }
 
         binding.exandLayout.parentLayout.visibility = View.GONE
 
@@ -52,6 +82,11 @@ class ChatActivity : AppCompatActivity() {
                     binding.exandLayout.parentLayout.visibility = View.GONE
                 }
         }
+    }
+    private fun getCurrentTime(): String {
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy, hh:mm:ss a", Locale.getDefault())
+        val currentTime = Calendar.getInstance().time
+        return dateFormat.format(currentTime)
     }
     private fun onCameraClick() {
         if (ContextCompat.checkSelfPermission(
