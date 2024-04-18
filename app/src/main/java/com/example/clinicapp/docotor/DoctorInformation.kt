@@ -42,8 +42,17 @@ class DoctorInformation : Fragment() {
 
         }
         binding.appointment.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("image", modelReceived.image)
+            bundle.putString("name", modelReceived.name)
+            bundle.putInt("price", modelReceived.price)
+
+
+            val secondFragment = Booking().apply {
+                arguments = bundle
+            }
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, Booking())
+                    .replace(R.id.fragmentContainer, secondFragment)
                     .addToBackStack(null)
                     .commit()
             }

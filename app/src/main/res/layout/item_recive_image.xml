@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        tools:ignore="UnusedAttribute"
+        android:background="@color/bcColor">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            tools:ignore="RtlCompat">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/white_card"
+                android:orientation="vertical"
+
+
+
+                >
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/image"
+                    android:layout_width="220dp"
+                    android:layout_height="250dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    app:riv_border_color="@color/black"
+                    app:riv_border_width="0dp"
+                    app:riv_corner_radius="5dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_msg_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bcsendmessage"
+                    android:fontFamily="@font/cairo_regular"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:textAlignment="textStart"
+                    android:textIsSelectable="true"
+                    android:text="السلام عليكم ورحمه الله وبركاته"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="11sp"
+                    android:layout_margin="3dp"
+                    android:textColor="#808588"
+                    android:textAlignment="textEnd"
+                    android:paddingEnd="10dp"
+                    android:text="12-12-2023, 12:55:12pm" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
