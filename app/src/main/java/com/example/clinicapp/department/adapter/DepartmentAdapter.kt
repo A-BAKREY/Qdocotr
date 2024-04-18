@@ -1,4 +1,4 @@
-package com.example.clinicapp.department
+package com.example.clinicapp.department.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.clinicapp.R
+import com.example.clinicapp.department.model.DepartmentModel
 
 class DepartmentAdapter(private val context: Context,private val item: ArrayList<DepartmentModel>) :BaseAdapter() {
     override fun getCount(): Int {

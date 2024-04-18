@@ -1,49 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".docotor.Doctor"
-    android:id="@+id/layout"
-    android:background="#eef2f5"
-    android:orientation="vertical">
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/exandLayoutBooking"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".docotor.Doctor">
+        android:layout_height="wrap_content"
+        android:background="@color/purple_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/backIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="30dp"
+                android:hardwareAccelerated="true"
+                android:src="@drawable/arrow_back" />
+
+            <TextView
+                android:id="@+id/appointmentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cairo_regular"
+                android:text="معلومات الدكتور"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <!-- باقي العناصر داخل ScrollView -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/backg"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:id="@+id/back"
-                    android:src="@drawable/arrow_back"
-                    android:layout_margin="10dp"/>
+                android:orientation="vertical">
 
+                <!-- هنا باقي العناصر -->
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_margin="30dp"
-                    android:scaleType="fitXY"
                     android:padding="20dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/doc3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,23 +97,23 @@
                     android:id="@+id/named"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Dr.Esraa "
                     android:layout_gravity="center"
-                    android:textSize="20dp"
+                    android:background="@drawable/backgrounddoctor"
                     android:fontFamily="@font/cairo_black"
+                    android:text=" Dr.Esraa "
                     android:textColor="#005fff"
-                    android:background="@drawable/backgrounddoctor"/>
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
                     android:layout_gravity="center"
-                    android:gravity="center"
+                    android:layout_margin="20dp"
                     android:fontFamily="@font/cairo_regular"
-                    android:textColor="@color/white"
+                    android:gravity="center"
                     android:text="أخصائي أمراض المخ والأعصاب والطب النفسي وطب النوم"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.625"
                     app:layout_constraintStart_toStartOf="parent"
@@ -85,22 +129,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="price"
-                        android:fontFamily="@font/cairo_black"
-                        android:textColor="#005fff"
                         android:layout_weight="1"
-                        android:background="@drawable/backgrounddoctor"/>
+                        android:background="@drawable/backgrounddoctor"
+                        android:fontFamily="@font/cairo_black"
+                        android:text="price"
+                        android:textColor="#005fff" />
 
 
                     <Button
+                        android:id="@+id/appointment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:textColor="#005fff"
-                        android:fontFamily="@font/cairo_black"
                         android:background="@drawable/backgrounddoctor"
-                        android:text="Appoinment" />
+                        android:fontFamily="@font/cairo_black"
+                        android:text="Appoinment"
+                        android:textColor="#005fff" />
 
 
                 </LinearLayout>
@@ -110,72 +155,103 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
                     android:layout_margin="10dp"
-                    android:textColor="@color/blue"
-                    android:padding="5dp"
                     android:fontFamily="@font/cairo_black"
-                    android:text="Languages"/>
+                    android:padding="5dp"
+                    android:text="Languages"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp" />
+
                 <TextView
                     android:id="@+id/lange1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Arabic"
-                    android:textSize="16sp"
                     android:layout_margin="10dp"
-                    android:fontFamily="@font/cairo_regular"
                     android:background="@drawable/backlang"
+                    android:fontFamily="@font/cairo_regular"
+                    android:padding="5dp"
+                    android:text="Arabic"
                     android:textColor="@color/white"
-                    android:padding="5dp"/>
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/lange2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Arabic"
-                    android:textSize="16sp"
                     android:layout_margin="10dp"
-                    android:fontFamily="@font/cairo_regular"
-
                     android:background="@drawable/backlang"
+                    android:fontFamily="@font/cairo_regular"
+                    android:padding="5dp"
+
+                    android:text="Arabic"
                     android:textColor="@color/white"
-                    android:padding="5dp"/>
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="5dp"
                 android:background="@color/white"
-                android:layout_margin="5dp">
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
                     android:layout_margin="10dp"
-                    android:textColor="@color/blue"
-                    android:padding="5dp"
                     android:fontFamily="@font/cairo_black"
-                    android:text="BIO"/>
+                    android:padding="5dp"
+                    android:text="Location"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/show"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/showlocation" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/cairo_black"
+                    android:padding="5dp"
+                    android:text="BIO"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp" />
+
                 <TextView
                     android:id="@+id/bio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13sp"
                     android:layout_margin="10dp"
-                    android:textColor="@color/black"
+                    android:fontFamily="@font/cairo_regular"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:fontFamily="@font/cairo_regular"
-                    android:text="د. هالة جودة استشاري الصحة النفسية. أطفال - مراهقين -تنمية مهارات وتعديل سلوك وتطبيق اختبار الذكاء والاختبارات النفسية و العلاج المعرفي السلوكي، والإرشاد الأسري"/>
+                    android:text="د. هالة جودة استشاري الصحة النفسية. أطفال - مراهقين -تنمية مهارات وتعديل سلوك وتطبيق اختبار الذكاء والاختبارات النفسية و العلاج المعرفي السلوكي، والإرشاد الأسري"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
 
             </LinearLayout>
+
         </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
-
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

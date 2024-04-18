@@ -1,12 +1,15 @@
-package com.example.clinicapp.docotor
+package com.example.clinicapp.docotor.model
 
-import android.media.Image
 import java.io.Serializable
 
 data class DoctorModel(
+    val id: Int,
     var image: Int,
     var name: String,
     var price: Int,
     var bio: String,
     var depart: String,
-): Serializable
+    var docLAT: Double,
+    var docLON: Double,
+
+    ): Serializable
