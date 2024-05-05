@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.clinicapp.Bookinglist.model.BookingModel
+import com.example.clinicapp.Bookinglist.viewmodel.adapter.BookingListAdapter
 import com.example.clinicapp.R
 import com.example.clinicapp.databinding.ActivityBookingListBinding
 

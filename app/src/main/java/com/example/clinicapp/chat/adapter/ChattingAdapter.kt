@@ -1,4 +1,4 @@
-package com.example.clinicapp.chat
+package com.example.clinicapp.chat.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +26,7 @@ class ChattingAdapter (private var dataSet: List<RepliesModel>) :
         return MyViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ChattingAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.textView1.text = dataSet[position].message
         holder.textView2.text = dataSet[position].date
         holder.textView3.text = "Guest"

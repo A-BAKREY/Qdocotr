@@ -12,10 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.clinicapp.R
 import com.example.clinicapp.booking.adapter.BookingAdapter
 import com.example.clinicapp.booking.model.BookingModel
-import com.example.clinicapp.chat.ChattingAdapter
-import com.example.clinicapp.chat.model.RepliesModel
 import com.example.clinicapp.databinding.ActivityBookingBinding
-import com.example.clinicapp.docotor.model.DoctorModel
 
 
 class Booking : Fragment() {

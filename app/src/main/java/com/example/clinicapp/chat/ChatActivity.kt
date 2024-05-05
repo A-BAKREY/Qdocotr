@@ -14,9 +14,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.clinicapp.R
+import com.example.clinicapp.chat.adapter.ChattingAdapter
 import com.example.clinicapp.chat.model.RepliesModel
 import com.example.clinicapp.databinding.ActivityChatBinding
-import com.example.clinicapp.docotor.adapter.DoctorAdapter
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale

@@ -1,4 +1,4 @@
-package com.example.clinicapp.Bookinglist
+package com.example.clinicapp.Bookinglist.model
 
 data class BookingModel(
     var name:String,

@@ -1,10 +1,11 @@
-package com.example.clinicapp.Bookinglist
+package com.example.clinicapp.Bookinglist.viewmodel.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.clinicapp.Bookinglist.model.BookingModel
 import com.example.clinicapp.R
 
 class BookingListAdapter(private val dataSet: List<BookingModel>, private val onClick: (BookingModel) -> Unit) :
