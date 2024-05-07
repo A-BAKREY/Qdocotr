@@ -12,7 +12,7 @@ import com.example.clinicapp.chat.ChatActivity
 import com.example.clinicapp.databinding.ActivityDepartmentBinding
 import com.example.clinicapp.department.adapter.DepartmentAdapter
 import com.example.clinicapp.department.model.DepartmentModel
-import com.example.clinicapp.docotor.Doctor
+import com.example.clinicapp.showdoctor.Doctor
 
 class Department : Fragment() {
 
@@ -20,10 +20,10 @@ class Department : Fragment() {
     private val binding get() = _binding!!
 
     val items = arrayListOf(
-        DepartmentModel(R.drawable.profile,"الكشف "),
-        DepartmentModel(R.drawable.ta,"التاهيل النفسي"),
-        DepartmentModel(R.drawable.ai,"ai"),
-        DepartmentModel(R.drawable.bu,"التجميل ")
+        DepartmentModel(1,R.drawable.profile,"الكشف "),
+        DepartmentModel(2,R.drawable.ta,"التاهيل النفسي"),
+        DepartmentModel(3,R.drawable.ai,"ai"),
+        DepartmentModel(4,R.drawable.bu,"التجميل ")
     )
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +36,11 @@ class Department : Fragment() {
         binding.departmentGrid.adapter = adapter
         val newFragment = Doctor()
         binding.departmentGrid.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            val newFragment = Doctor()
+            val bundle = Bundle()
+            // هنا يمكنك إرسال أي بيانات إضافية مثل اسم القسم المختار
+            bundle.putString("departmentID", items[position].id.toString())
+            newFragment.arguments = bundle
             fragmentManager?.beginTransaction()
                 ?.replace(R.id.fragmentContainer, newFragment)
                 ?.addToBackStack(null)

@@ -1,4 +1,4 @@
-package com.example.clinicapp.docotor.model
+package com.example.clinicapp.model
 
 import java.io.Serializable
 

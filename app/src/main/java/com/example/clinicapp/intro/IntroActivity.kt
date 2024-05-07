@@ -39,21 +39,5 @@ class IntroActivity : AppCompatActivity() {
                 finish()
             }
         }
-
-
-
-//        val sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-//        val isFirstRun = sharedPreferences.getBoolean(PREF_FIRST_RUN, true)
-//
-//        if (isFirstRun) {
-//            // عرض شاشة الـ Onboarding لأول مرة
-//            val editor = sharedPreferences.edit()
-//            editor.putBoolean(PREF_FIRST_RUN, false)
-//            editor.apply()
-//        } else {
-//            // الانتقال مباشرة إلى النشاط الرئيسي أو أي نشاط آخر
-//            startActivity(Intent(this, LoginActivity::class.java))
-//            finish()
-//        }
     }
 }

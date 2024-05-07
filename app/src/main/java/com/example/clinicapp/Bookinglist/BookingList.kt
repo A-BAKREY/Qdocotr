@@ -1,5 +1,6 @@
 package com.example.clinicapp.Bookinglist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,11 +9,14 @@ import com.example.clinicapp.Bookinglist.model.BookingModel
 import com.example.clinicapp.Bookinglist.viewmodel.adapter.BookingListAdapter
 import com.example.clinicapp.R
 import com.example.clinicapp.databinding.ActivityBookingListBinding
+import com.example.clinicapp.databinding.ActivityLoginBinding
+import com.example.clinicapp.paitent.PatientActivity
 
 class BookingList : AppCompatActivity() {
 
-    private var _binding: ActivityBookingListBinding? = null
-    private val binding get() = _binding!!
+
+    private lateinit var binding: ActivityBookingListBinding
+
     val items = arrayListOf(
         BookingModel(
             "هالة جودة",
@@ -57,10 +61,16 @@ class BookingList : AppCompatActivity() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_list)
-        val recycler = findViewById<RecyclerView>(R.id.bookingRecycler)
-        recycler.layoutManager = LinearLayoutManager(this)
-        recycler.adapter = BookingListAdapter(items) { item ->
+        binding = ActivityBookingListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.bookingRecycler.layoutManager = LinearLayoutManager(this)
+        binding.bookingRecycler.adapter = BookingListAdapter(items) { item ->
+
+
+        }
+        binding.openChat.setOnClickListener {
+            startActivity(Intent(this,PatientActivity::class.java))
         }
     }
 }

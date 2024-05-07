@@ -1,4 +1,4 @@
-package com.example.clinicapp.docotor
+package com.example.clinicapp.doctorinfo
 
 
 import android.content.Intent
@@ -14,8 +14,7 @@ import androidx.fragment.app.Fragment
 import com.example.clinicapp.R
 import com.example.clinicapp.booking.Booking
 import com.example.clinicapp.databinding.ActivityDocinfoBinding
-import com.example.clinicapp.databinding.BookingLayoutBinding
-import com.example.clinicapp.docotor.model.DoctorModel
+import com.example.clinicapp.model.DoctorModel
 
 class DoctorInformation : Fragment() {
 

@@ -1,65 +1,71 @@
-package com.example.clinicapp.authantication
+package com.example.clinicapp.adddoctor
 
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.clinicapp.R
+import com.example.clinicapp.admin.Admin
 import com.example.clinicapp.authantication.viewmodel.SignupViewModel
-import com.example.clinicapp.databinding.ActivitySignupBinding
+import com.example.clinicapp.databinding.AddDoctorBinding
 import com.example.clinicapp.databinding.DailogBinding
 import com.example.clinicapp.model.RegisterModel
 
-class SignupActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignupBinding
+class AddDoctor : AppCompatActivity() {
+    private lateinit var binding: AddDoctorBinding
     private lateinit var viewModel: SignupViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupBinding.inflate(layoutInflater)
+        binding = AddDoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
 
         setListener()
         setObserver()
-    }
 
+    }
     private fun setListener(){
-        binding.gotologin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+        binding.back.setOnClickListener {
+            startActivity(Intent(this, Admin::class.java))
+            finish()
         }
 
-        binding.register.setOnClickListener {
-            val email = binding.etMail.text.toString()
-            val firstName = binding.etFirstname.text.toString()
-            val lastName = binding.etLastname.text.toString()
-            val phone = binding.phone.text.toString()
-            val address = binding.address.text.toString()
+        binding.add.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val name = binding.etName.text.toString()
+            val bio = binding.etBio.text.toString()
+            val phone = binding.etPhone.text.toString()
             val password = binding.etSPassword.text.toString()
+            val department = binding.etDepartment.text.toString()
             val confirmPass = binding.etSConfPassword.text.toString()
+            val price = binding.price.text.toString()
 
-            if (validate(email, password, firstName, lastName, phone, address)) {
-                viewModel.register(RegisterModel(
-                    address,
-                    "",
+            if (validate(email, password, name, bio, phone,department)) {
+                viewModel.register(
+                    RegisterModel(
+                    bio,
+                    department,
                     email,
                     "0.0",
                     "0.0",
-                    "$firstName $lastName",
+                    name,
                     password,
                     phone,
-                    "0",
-                    "P"
-                ))
+                    price,
+                    "D"
+                )
+                )
             }
         }
     }
@@ -98,11 +104,11 @@ class SignupActivity : AppCompatActivity() {
         layoutParams.alpha = 1.0f // استعادة الشفافية الكاملة
         window.attributes = layoutParams
     }
-    private fun validate(mail: String, password: String,firstName: String, lastName: String,phone: String, address: String): Boolean {
+    private fun validate(mail: String, password: String,firstName: String, bio: String,phone: String, department: String): Boolean {
         var isValid = true
 
         if (mail.isEmpty()) {
-            binding.etMail.error = "من فضلك ادخل الايميل"
+            binding.etEmail.error = "من فضلك ادخل الايميل"
             isValid = false
         }
         if (password.isEmpty()) {
@@ -110,19 +116,19 @@ class SignupActivity : AppCompatActivity() {
             isValid = false
         }
         if (firstName.isEmpty()) {
-            binding.etFirstname.error = "من فضلك ادخل الاسم الاول"
+            binding.etName.error = "من فضلك ادخل الاسم"
             isValid = false
         }
-        if (lastName.isEmpty()) {
-            binding.etLastname.error = "من فضلك ادخل الاسم الاخير "
+        if (bio.isEmpty()) {
+            binding.etBio.error = "من فضلك ادخل الاسم البايو "
             isValid = false
         }
         if (phone.isEmpty()) {
-            binding.phone.error = "من فضلك ادخل رقم الهاتف"
+            binding.etPhone.error = "من فضلك ادخل رقم الهاتف"
             isValid = false
         }
-        if (address.isEmpty()) {
-            binding.address.error = "من فضلك ادخل العنوان"
+        if (department.isEmpty()) {
+            binding.etDepartment.error = "من فضلك ادخل القسم"
             isValid = false
         }
 
@@ -145,14 +151,14 @@ class SignupActivity : AppCompatActivity() {
         dialog.show()
     }
     private fun clear(){
-        binding.phone.setText("")
-        binding.etMail.setText("")
-        binding.etLastname.setText("")
-        binding.etFirstname.setText("")
+        binding.etName.setText("")
+        binding.etEmail.setText("")
+        binding.price.setText("")
+        binding.etDepartment.setText("")
         binding.etSConfPassword.setText("")
         binding.etSPassword.setText("")
-        binding.address.setText("")
-
+        binding.etBio.setText("")
+        binding.etPhone.setText("")
 
     }
 }

@@ -1,12 +1,13 @@
 package com.example.clinicapp
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.clinicapp.databinding.ActivityMainBinding
 import com.example.clinicapp.department.Department
-import com.example.clinicapp.docotor.Doctor
-import com.example.clinicapp.docotor.DoctorInformation
+import com.example.clinicapp.showdoctor.Doctor
+import com.example.clinicapp.profile.ProfileFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val homeFragment = Department()
     private val dashboardFragment = Doctor()
-    private val profileFragment = DoctorInformation()
+    private val profileFragment = ProfileFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,14 @@ class MainActivity : AppCompatActivity() {
 
         // Set the default fragment
         replaceFragment(homeFragment)
+
+        val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        val userType = sharedPreferences.getString("userType", "")
+        if (userType != null) {
+            val editor = sharedPreferences.edit()
+            editor.putString("userType", userType)
+            editor.apply()
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {

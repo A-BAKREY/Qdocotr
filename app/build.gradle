@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.clinicapp"
-        minSdk 21
-        targetSdk 32
+        minSdk 26
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -33,7 +33,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
+        freeCompilerArgs += "-Xjvm-default=compatibility"
+
     }
 }
 
@@ -51,13 +53,22 @@ dependencies {
     testImplementation 'com.google.truth:truth:1.0.1'
     implementation ("com.makeramen:roundedimageview:2.3.0")
     implementation ("com.github.skydoves:expandablelayout:1.0.7")
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
+    implementation "com.google.android.gms:play-services-location:18.0.0"
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
 
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    def versiRet = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$versiRet"
+    implementation "com.squareup.retrofit2:converter-gson:$versiRet"
 
+    def versiOkhttp = "4.9.1"
+    implementation "com.squareup.okhttp3:okhttp:$versiOkhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versiOkhttp"
+    implementation 'com.google.code.gson:gson:2.8.7'
+
+// coroutine
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
 
 }

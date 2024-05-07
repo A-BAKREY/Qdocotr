@@ -1,4 +1,4 @@
-package com.example.clinicapp.chat.viewmodel
+package com.example.clinicapp.authantication.viewmodel
 
 import androidx.annotation.Nullable
 import androidx.lifecycle.LiveData
@@ -11,7 +11,7 @@ import com.example.clinicapp.model.RegisterResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ChatViewModel : ViewModel() {
+class SignupViewModel: ViewModel() {
 
     private val _snackBar = MutableLiveData<Boolean>()
 

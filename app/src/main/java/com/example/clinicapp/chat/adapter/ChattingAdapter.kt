@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clinicapp.R
-import com.example.clinicapp.chat.model.RepliesModel
+import com.example.clinicapp.model.RepliesModel
 
 
 class ChattingAdapter (private var dataSet: List<RepliesModel>) :
