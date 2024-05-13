@@ -3,8 +3,10 @@ package com.example.clinicapp.admin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.clinicapp.R
 import com.example.clinicapp.databinding.AdminBinding
 import com.example.clinicapp.adddoctor.AddDoctor
+import com.example.clinicapp.profile.ProfileFragment
 
 class Admin : AppCompatActivity() {
     private lateinit var binding: AdminBinding

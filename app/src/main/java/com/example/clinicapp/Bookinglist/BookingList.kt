@@ -1,5 +1,6 @@
 package com.example.clinicapp.Bookinglist
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,7 @@ import com.example.clinicapp.R
 import com.example.clinicapp.databinding.ActivityBookingListBinding
 import com.example.clinicapp.databinding.ActivityLoginBinding
 import com.example.clinicapp.paitent.PatientActivity
+import com.example.clinicapp.profile.ProfileFragment
 
 class BookingList : AppCompatActivity() {
 
@@ -59,6 +61,7 @@ class BookingList : AppCompatActivity() {
             50
             ,"01254789652")
     )
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBookingListBinding.inflate(layoutInflater)

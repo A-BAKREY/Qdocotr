@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layout2"
     tools:context=".Bookinglist.BookingList">
     <LinearLayout
         android:id="@+id/header"
@@ -33,7 +34,14 @@
             android:textColor="@color/white"
             android:fontFamily="@font/cairo_bold"
             android:textSize="18sp"
-            android:text="Patient List"/>
+            android:text="Reservation List"/>
+        <ImageView
+            android:id="@+id/goToProfile"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:src="@drawable/profie"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bookingRecycler"

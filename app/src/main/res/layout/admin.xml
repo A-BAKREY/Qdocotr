@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/start1"
@@ -7,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:ignore="MissingClass">
-
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -46,14 +46,26 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DashBoard"
+        android:background="@color/purple_700"
         android:gravity="center"
+        android:text="DashBoard"
         android:textColor="@color/white"
         android:textSize="40dp"
-        android:background="@color/purple_700"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/goToProfile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/goToProfile"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:src="@drawable/profie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
