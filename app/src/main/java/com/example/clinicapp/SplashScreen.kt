@@ -39,9 +39,9 @@ class SplashScreen : AppCompatActivity() {
         val userType = sharedPreferences.getString("userType", "")
 
         val intent = when (userType) {
-            "admin" -> Intent(this, Admin::class.java)
-            "doctor" -> Intent(this, BookingList::class.java)
-            "patient" -> Intent(this, MainActivity::class.java)
+            "A" -> Intent(this, Admin::class.java)
+            "D" -> Intent(this, BookingList::class.java)
+            "P" -> Intent(this, MainActivity::class.java)
             else -> Intent(this, MainActivity::class.java) // Default activity if userType is unknown
         }
 

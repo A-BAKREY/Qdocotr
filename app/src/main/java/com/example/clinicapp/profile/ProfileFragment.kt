@@ -40,18 +40,17 @@ class ProfileFragment  : Fragment() {
         val sharedPreferences = requireContext().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        // يمكنك إضافة رسالة تأكيد هنا
         AlertDialog.Builder(requireContext())
-            .setTitle("تأكيد تسجيل الخروج")
-            .setMessage("هل أنت متأكد من رغبتك في تسجيل الخروج؟")
-            .setPositiveButton("نعم") { dialog, _ ->
+            .setTitle("Confirm Logout")
+            .setMessage("Are you sure you want to sign out?")
+            .setPositiveButton("yes") { dialog, _ ->
                 editor.clear()
                 editor.apply()
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
                 requireActivity().finish()
                 dialog.dismiss()
             }
-            .setNegativeButton("لا") { dialog, _ ->
+            .setNegativeButton("no") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()

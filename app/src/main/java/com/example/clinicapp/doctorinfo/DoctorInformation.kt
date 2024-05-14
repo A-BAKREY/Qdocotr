@@ -9,12 +9,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.clinicapp.R
 import com.example.clinicapp.booking.Booking
 import com.example.clinicapp.databinding.ActivityDocinfoBinding
 import com.example.clinicapp.model.DoctorModel
+import com.example.clinicapp.model.DoctorResponseModelItem
 
 class DoctorInformation : Fragment() {
 
@@ -30,19 +32,26 @@ class DoctorInformation : Fragment() {
         _binding = ActivityDocinfoBinding.inflate(inflater, container, false)
         val view = binding.root
         binding.exandLayoutBooking.setBackgroundColor(requireContext().getColor(R.color.gray))
-        val modelReceived = arguments?.getSerializable("data_key") as? DoctorModel
-        binding.imageView2.setImageResource(modelReceived!!.image)
+        val modelReceived = arguments?.getSerializable("data_key") as DoctorResponseModelItem
         binding.named.text = modelReceived.name
         binding.price.text = modelReceived.price.toString()
-        binding.bio.text = modelReceived.bio
-        binding.textView2.text = modelReceived.depart
+        binding.bio.text = modelReceived.price.toString()
+        if (modelReceived.department == "1"){
+            binding.textView2.text = "الكشف"
+        }else if(modelReceived.department == "2"){
+            binding.textView2.text = "التاهيل النفسي"
+        }else if (modelReceived.department == "3"){
+            binding.textView2.text = "التجميل"
+        }else{
+            binding.textView2.text = "AI"
+
+        }
         binding.backIcon.setOnClickListener {
             requireActivity().onBackPressed()
 
         }
         binding.appointment.setOnClickListener {
             val bundle = Bundle()
-            bundle.putInt("image", modelReceived.image)
             bundle.putString("name", modelReceived.name)
             bundle.putInt("price", modelReceived.price)
 
@@ -57,23 +66,34 @@ class DoctorInformation : Fragment() {
             }
 
         binding.show.setOnClickListener {
-            val latitude = modelReceived.docLAT
-            val longitude = modelReceived.docLON
+         showDoctorLocation(modelReceived)
+        }
+        return view
+    }
+    private fun showDoctorLocation(doctor: DoctorResponseModelItem) {
+        val latitude = doctor.latetude
+        val longitude = doctor.logtude
+
+        if (latitude != null && longitude != null) {
             val label = "Location Label"
             val uri = "geo:$latitude,$longitude?q=$latitude,$longitude($label)"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
             intent.setPackage("com.google.android.apps.maps")
+
             if (intent.resolveActivity(requireContext().packageManager) != null) {
                 startActivity(intent)
             } else {
-                // يتم فتح Google Maps على متصفح الويب إذا لم يتم العثور على تطبيق خرائط Google على الجهاز.
-                val webUri = "https://www.google.com/maps/search/?api=1&query=$latitude,$longitude"
+                // Open Google Maps on a web browser if Google Maps app is not found on the device.
+                val webUri =
+                    "https://www.google.com/maps/search/?api=1&query=$latitude,$longitude"
                 val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(webUri))
                 startActivity(webIntent)
-                Log.e("lat long", "${modelReceived.docLAT}${modelReceived.docLON}")
+                Log.e("lat long", "$latitude$longitude")
             }
+        } else {
+            // Handle the scenario when location coordinates are empty or null
+            Toast.makeText(requireContext(), "Location not available", Toast.LENGTH_SHORT).show()
         }
-        return view
     }
 
     override fun onDestroyView() {

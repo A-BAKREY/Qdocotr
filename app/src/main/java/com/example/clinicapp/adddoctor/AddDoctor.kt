@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -23,46 +24,63 @@ import com.example.clinicapp.model.RegisterModel
 class AddDoctor : AppCompatActivity() {
     private lateinit var binding: AddDoctorBinding
     private lateinit var viewModel: SignupViewModel
-
+    val departments = listOf("اختر القسم","الكشف","التاهيل النفسي","التجميل","AI")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = AddDoctorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, departments)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.etDepartment.adapter = adapter
+
+        binding.etDepartment.setSelection(0)
 
         setListener()
         setObserver()
 
     }
     private fun setListener(){
+
         binding.back.setOnClickListener {
             startActivity(Intent(this, Admin::class.java))
             finish()
         }
 
         binding.add.setOnClickListener {
+            var depSelection = 0
             val email = binding.etEmail.text.toString()
             val name = binding.etName.text.toString()
             val bio = binding.etBio.text.toString()
             val phone = binding.etPhone.text.toString()
             val password = binding.etSPassword.text.toString()
-            val department = binding.etDepartment.text.toString()
+            if (binding.etDepartment.selectedItemPosition == 1){
+                depSelection = 1
+            }else if (binding.etDepartment.selectedItemPosition == 2){
+                depSelection = 2
+            }else if (binding.etDepartment.selectedItemPosition == 3){
+                depSelection = 3
+            }else{
+                depSelection = 4
+            }
+            val lat = binding.etLat.text.toString()
+            val lon = binding.etLon.text.toString()
             val confirmPass = binding.etSConfPassword.text.toString()
             val price = binding.price.text.toString()
 
-            if (validate(email, password, name, bio, phone,department)) {
+            if (validate(email, password, name, bio, phone)) {
                 viewModel.register(
                     RegisterModel(
                     bio,
-                    department,
+                    depSelection.toString(),
                     email,
-                    "0.0",
-                    "0.0",
+                    lat.toDouble(),
+                    lon.toDouble(),
                     name,
                     password,
                     phone,
-                    price,
+                    price.toInt(),
                     "D"
                 )
                 )
@@ -104,7 +122,7 @@ class AddDoctor : AppCompatActivity() {
         layoutParams.alpha = 1.0f // استعادة الشفافية الكاملة
         window.attributes = layoutParams
     }
-    private fun validate(mail: String, password: String,firstName: String, bio: String,phone: String, department: String): Boolean {
+    private fun validate(mail: String, password: String,firstName: String, bio: String,phone: String): Boolean {
         var isValid = true
 
         if (mail.isEmpty()) {
@@ -125,10 +143,6 @@ class AddDoctor : AppCompatActivity() {
         }
         if (phone.isEmpty()) {
             binding.etPhone.error = "من فضلك ادخل رقم الهاتف"
-            isValid = false
-        }
-        if (department.isEmpty()) {
-            binding.etDepartment.error = "من فضلك ادخل القسم"
             isValid = false
         }
 
@@ -154,11 +168,14 @@ class AddDoctor : AppCompatActivity() {
         binding.etName.setText("")
         binding.etEmail.setText("")
         binding.price.setText("")
-        binding.etDepartment.setText("")
+        binding.etDepartment.setSelection(0)
         binding.etSConfPassword.setText("")
         binding.etSPassword.setText("")
         binding.etBio.setText("")
         binding.etPhone.setText("")
+        binding.etLat.setText("")
+        binding.etLon.setText("")
+
 
     }
 }

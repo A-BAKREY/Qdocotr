@@ -36,10 +36,10 @@
             android:textSize="18sp"
             android:text="Reservation List"/>
         <ImageView
-            android:id="@+id/goToProfile"
+            android:id="@+id/logout"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:src="@drawable/profie"
+            android:src="@drawable/logout"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"/>
     </LinearLayout>

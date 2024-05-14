@@ -22,8 +22,9 @@ class Department : Fragment() {
     val items = arrayListOf(
         DepartmentModel(1,R.drawable.profile,"الكشف "),
         DepartmentModel(2,R.drawable.ta,"التاهيل النفسي"),
-        DepartmentModel(3,R.drawable.ai,"ai"),
-        DepartmentModel(4,R.drawable.bu,"التجميل ")
+        DepartmentModel(3,R.drawable.bu,"التجميل "),
+        DepartmentModel(4,R.drawable.ai,"ai")
+
     )
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

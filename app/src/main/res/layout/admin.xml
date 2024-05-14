@@ -51,18 +51,18 @@
         android:text="DashBoard"
         android:textColor="@color/white"
         android:textSize="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/goToProfile"
+        app:layout_constraintEnd_toStartOf="@+id/signOut"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/goToProfile"
+        android:id="@+id/signOut"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_margin="15dp"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:src="@drawable/profie"
+        android:src="@drawable/logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

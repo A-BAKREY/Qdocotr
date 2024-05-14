@@ -1,52 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add Doctor"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/blue"
+        app:layout_constraintStart_toEndOf="@id/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"/>
+<ScrollView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:fillViewport="true"
+    app:layout_constraintTop_toBottomOf="@id/back"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="15dp"
         android:paddingTop="40dp"
-        android:paddingBottom="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/arrow_back"/>
+        android:paddingBottom="40dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Doctor"
-            android:gravity="center"
-            android:fontFamily="@font/cairo_bold"
-            android:textSize="20sp"
-            android:textColor="@color/blue"/>
 
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
             android:autofillHints="emailAddress"
             android:ems="10"
             android:hint="Name"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
             android:textColorHint="#C5C6C7" />
 
 
@@ -55,12 +67,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:autofillHints="Email"
             android:ems="10"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
             android:hint="Email"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
             android:textColorHint="#C5C6C7" />
 
         <EditText
@@ -68,53 +82,90 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:autofillHints="phone number"
             android:ems="10"
             android:hint="phone number"
-            android:minHeight="48dp"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
+            android:minHeight="40dp"
             android:textColorHint="#C5C6C7" />
 
-        <EditText
+        <Spinner
             android:id="@+id/etDepartment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:autofillHints="depaartment"
             android:ems="10"
+            android:background="@drawable/spinner_bg"
             android:hint="department"
             android:textColorHint="#C5C6C7"
-            android:minHeight="48dp"
-             />
+            android:minHeight="40dp"
+            />
+
+        <EditText
+            android:id="@+id/etLat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:autofillHints="Bio"
+            android:ems="10"
+            android:hint="Latitude"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
+            android:minHeight="40dp"
+            android:textColorHint="#C5C6C7" />
+        <EditText
+            android:id="@+id/etLon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:autofillHints="Bio"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
+            android:ems="10"
+            android:hint="Longitude"
+            android:minHeight="40dp"
+            android:textColorHint="#C5C6C7" />
 
         <EditText
             android:id="@+id/etBio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:autofillHints="Bio"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
             android:ems="10"
             android:hint="Bio"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
             android:textColorHint="#C5C6C7" />
+
 
         <EditText
             android:id="@+id/etSPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:autofillHints="password"
             android:ems="10"
             android:hint="password"
             android:inputType="textPassword"
-            android:minHeight="48dp"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
+            android:minHeight="40dp"
             android:textColorHint="#C5C6C7" />
 
         <EditText
@@ -122,13 +173,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:autofillHints="password"
             android:ems="10"
             android:hint="confirm_password"
             android:inputType="textPassword"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
+
             android:textColorHint="#C5C6C7"
             tools:ignore="TextContrastCheck" />
         <ProgressBar
@@ -146,14 +200,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:autofillHints="password"
             android:ems="10"
             android:hint="price"
             android:inputType="textPassword"
-            android:minHeight="48dp"
+            android:minHeight="40dp"
             android:textColorHint="#C5C6C7"
+            android:background="@drawable/edittextb"
+            android:paddingStart="5dp"
             tools:ignore="TextContrastCheck" />
 
         <Button
@@ -166,5 +222,6 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
+</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

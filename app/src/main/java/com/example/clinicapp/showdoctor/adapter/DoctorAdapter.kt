@@ -45,8 +45,8 @@ class DoctorAdapter (val context: Context,
         @RequiresApi(Build.VERSION_CODES.M)
         fun bind(item: DoctorResponseModelItem) = with(binding) {
             binding.doctorName.text = item.name
-
-            binding.location.setOnClickListener {
+            binding.bio.text = item.price.toString()
+            binding.layout.setOnClickListener {
                 itemSelected.invoke(item)
             }
         }

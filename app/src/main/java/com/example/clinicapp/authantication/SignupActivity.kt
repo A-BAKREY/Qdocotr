@@ -52,12 +52,12 @@ class SignupActivity : AppCompatActivity() {
                     address,
                     "",
                     email,
-                    "0.0",
-                    "0.0",
+                    0.0,
+                    0.0,
                     "$firstName $lastName",
                     password,
                     phone,
-                    "0",
+                    0,
                     "P"
                 ))
             }
