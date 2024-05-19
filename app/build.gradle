@@ -1,10 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.clinicapp"
@@ -25,7 +26,7 @@ android {
     viewBinding {
         enabled = true
     }
-    dataBinding{
+    dataBinding {
         enabled = true
     }
     compileOptions {
@@ -35,12 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = '17'
         freeCompilerArgs += "-Xjvm-default=compatibility"
-
     }
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
@@ -51,11 +50,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation "androidx.viewpager:viewpager:1.0.0"
     testImplementation 'com.google.truth:truth:1.0.1'
-    implementation ("com.makeramen:roundedimageview:2.3.0")
-    implementation ("com.github.skydoves:expandablelayout:1.0.7")
+    implementation "com.makeramen:roundedimageview:2.3.0"
+    implementation "com.github.skydoves:expandablelayout:1.0.7"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
     implementation "com.google.android.gms:play-services-location:18.0.0"
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
 
     def versiRet = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$versiRet"
@@ -66,9 +65,9 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$versiOkhttp"
     implementation 'com.google.code.gson:gson:2.8.7'
 
-// coroutine
-
+    // coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
 
+    implementation 'com.stripe:stripe-android:20.43.0'
 }

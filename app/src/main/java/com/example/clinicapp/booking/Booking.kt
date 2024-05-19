@@ -13,6 +13,7 @@ import com.example.clinicapp.R
 import com.example.clinicapp.booking.adapter.BookingAdapter
 import com.example.clinicapp.booking.model.BookingModel
 import com.example.clinicapp.databinding.ActivityBookingBinding
+import com.example.clinicapp.payment.PaymentFragment
 
 
 class Booking : Fragment() {
@@ -48,7 +49,10 @@ class Booking : Fragment() {
         binding.doctorName2.text = arguments?.getString("name")
         binding.price.text = arguments?.getInt("price").toString()
         binding.reservationBtn.setOnClickListener {
-
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, PaymentFragment())
+                .addToBackStack(null)
+                .commit()
         }
         return view
     }

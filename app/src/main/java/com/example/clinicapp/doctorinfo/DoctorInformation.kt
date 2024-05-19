@@ -101,15 +101,6 @@ class DoctorInformation : Fragment() {
         _binding = null
     }
 
-//    val gmmIntentUri = Uri.parse("geo:$latitude,$longitude?q=$latitude,$longitude")
-//    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-//    mapIntent.setPackage("com.google.android.apps.maps")
-//    if (mapIntent.resolveActivity(packageManager) != null) {
-//        startActivity(mapIntent)
-//    } else {
-//        // Google Maps app is not installed, handle the situation accordingly
-//        Toast.makeText(this, "Google Maps app is not installed", Toast.LENGTH_SHORT).show()
-//    }
 
 
 }
