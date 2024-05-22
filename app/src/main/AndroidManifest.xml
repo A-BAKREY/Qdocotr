@@ -65,6 +65,9 @@
             android:name=".admin.Admin"
             android:exported="false" />
         <activity
+            android:name=".AiSection.AISection"
+            android:exported="false" />
+        <activity
             android:name=".booking.Booking"
             android:exported="false"
             tools:ignore="Instantiatable" />

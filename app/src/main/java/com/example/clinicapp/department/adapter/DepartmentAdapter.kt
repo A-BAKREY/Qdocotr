@@ -1,5 +1,6 @@
 package com.example.clinicapp.department.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -23,10 +24,11 @@ class DepartmentAdapter(private val context: Context,private val item: ArrayList
         return p0.toLong()
     }
 
+    @SuppressLint("ViewHolder")
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         val view = LayoutInflater.from(context).inflate(R.layout.item_depertment,p2,false)
-        var image = view?.findViewById<ImageView>(R.id.departmentImage)
-        var name = view?.findViewById<TextView>(R.id.depatmentName)
+        val image = view?.findViewById<ImageView>(R.id.departmentImage)
+        val name = view?.findViewById<TextView>(R.id.depatmentName)
         val items = item[p0]
         image?.setImageResource(items.image)
         name?.text = items.text
